@@ -14,33 +14,33 @@ type myLinkedList struct {
 
 type linkedList interface {
 	length() int
-	insert(idx int,n *node)
+	insert(idx int, n *node)
 	delete(idx int)
 	get(idx int) *node
 	Traverse()
 }
 
 func New() *myLinkedList {
-	return &myLinkedList{&node{"head",nil},0}
+	return &myLinkedList{&node{"head", nil}, 0}
 }
 
 func (l *myLinkedList) length() int {
 	n := l.head.next
 	i := 0
-	for n != nil{
+	for n != nil {
 		i++
 		n = n.next
 	}
 	return i
 }
 
-func (l *myLinkedList) insert(idx int,node *node) {
-	if idx <0 && node == nil{
+func (l *myLinkedList) insert(idx int, node *node) {
+	if idx < 0 && node == nil {
 		return
 	}
 	n := l.head
 	i := 0
-	for i < idx-1 && n != nil{
+	for i < idx - 1 && n != nil {
 		i++
 		n = n.next
 	}
@@ -48,12 +48,12 @@ func (l *myLinkedList) insert(idx int,node *node) {
 	n.next = node
 }
 func (l *myLinkedList) get(idx int) *node {
-	if idx <0{
+	if idx < 0 {
 		return nil
 	}
 	n := l.head
 	i := 0
-	for i<idx && n != nil{
+	for i < idx && n != nil {
 		i++
 		n = n.next
 	}
@@ -61,12 +61,12 @@ func (l *myLinkedList) get(idx int) *node {
 }
 
 func (l *myLinkedList) delete(idx int) {
-	if idx <0 || idx > l.length(){
+	if idx < 0 || idx > l.length() {
 		return
 	}
 	n := l.head
 	i := 0
-	for i < idx -1 && n != nil{
+	for i < idx - 1 && n != nil {
 		i++
 		n = n.next
 	}
@@ -76,18 +76,18 @@ func (l *myLinkedList) delete(idx int) {
 func (l *myLinkedList) Travelse() {
 	n := l.head
 	i := 0
-	for n != nil{
-		fmt.Print(i,":",n.data)
+	for n != nil {
+		fmt.Print(i, ":", n.data)
 		fmt.Println()
 		n = n.next
 		i++
 	}
 }
 
-func main()  {
+func main() {
 	l := New()
-	l.insert(1,&node{"a",nil})
-	l.insert(2,&node{"b",nil})
+	l.insert(1, &node{"a", nil})
+	l.insert(2, &node{"b", nil})
 	l.Travelse()
 	fmt.Println(l.get(0).data)
 	fmt.Println(l.get(2).data)
