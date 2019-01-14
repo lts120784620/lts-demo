@@ -1,6 +1,5 @@
 package linkedList
 
-
 // 翻转链表,非递归
 func ReverseList(l *MyLinkedList) *Node {
 	prev := l.Head
@@ -15,6 +14,16 @@ func ReverseList(l *MyLinkedList) *Node {
 	}
 	l.Head.Next = nil
 	return prev
+}
+
+// 翻转链表，递归
+func ReverseList2(head *Node) *Node {
+	if head == nil || head.Next == nil{
+		return head
+	}
+	n := ReverseList2(head.Next)
+	head.Next = head.Next.Next
+	head.
 }
 
 
