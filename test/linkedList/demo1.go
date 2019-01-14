@@ -1,97 +1,96 @@
-package main
+package linkedList
 
 import "fmt"
 
-type node struct {
-	data string
-	next *node
+type Node struct {
+	Data string
+	Next *Node
 }
 
-type myLinkedList struct {
-	head *node
+type MyLinkedList struct {
+	Head *Node
 	size int
 }
 
 type linkedList interface {
 	length() int
-	insert(idx int, n *node)
-	delete(idx int)
-	get(idx int) *node
+	Insert(idx int, n *Node)
+	Delete(idx int)
+	get(idx int) *Node
 	Traverse()
 }
 
-func New() *myLinkedList {
-	return &myLinkedList{&node{"head", nil}, 0}
+func New() *MyLinkedList {
+	return &MyLinkedList{&Node{"head", nil}, 0}
 }
 
-func (l *myLinkedList) length() int {
-	n := l.head.next
+func (l *MyLinkedList) length() int {
+	n := l.Head.Next
 	i := 0
 	for n != nil {
 		i++
-		n = n.next
+		n = n.Next
 	}
 	return i
 }
 
-func (l *myLinkedList) insert(idx int, node *node) {
+func (l *MyLinkedList) Insert(idx int, node *Node) {
 	if idx < 0 && node == nil {
 		return
 	}
-	n := l.head
+	n := l.Head
 	i := 0
 	for i < idx - 1 && n != nil {
 		i++
-		n = n.next
+		n = n.Next
 	}
-	node.next = n.next
-	n.next = node
+	node.Next = n.Next
+	n.Next = node
 }
-func (l *myLinkedList) get(idx int) *node {
+func (l *MyLinkedList) get(idx int) *Node {
 	if idx < 0 {
 		return nil
 	}
-	n := l.head
+	n := l.Head
 	i := 0
 	for i < idx && n != nil {
 		i++
-		n = n.next
+		n = n.Next
 	}
 	return n
 }
 
-func (l *myLinkedList) delete(idx int) {
+func (l *MyLinkedList) Delete(idx int) {
 	if idx < 0 || idx > l.length() {
 		return
 	}
-	n := l.head
+	n := l.Head
 	i := 0
 	for i < idx - 1 && n != nil {
 		i++
-		n = n.next
+		n = n.Next
 	}
-	n.next = n.next.next
+	n.Next = n.Next.Next
 }
 
-func (l *myLinkedList) Travelse() {
-	n := l.head
+func (l *MyLinkedList) Travelse() {
+	n := l.Head
 	i := 0
 	for n != nil {
-		fmt.Print(i, ":", n.data)
+		fmt.Print(i, ":", n.Data)
 		fmt.Println()
-		n = n.next
+		n = n.Next
 		i++
 	}
 }
 
-func main() {
-	l := New()
-	l.insert(1, &node{"a", nil})
-	l.insert(2, &node{"b", nil})
-	l.Travelse()
-	fmt.Println(l.get(0).data)
-	fmt.Println(l.get(2).data)
-	fmt.Println(l.length())
-	l.delete(1)
-	l.Travelse()
+func TravelseHead(head *Node) {
+	n := head
+	i := 0
+	for n != nil {
+		fmt.Print(i, ":", n.Data)
+		fmt.Println()
+		n = n.Next
+		i++
+	}
 }

@@ -1,0 +1,20 @@
+package linkedList
+
+
+// 翻转链表,非递归
+func ReverseList(l *MyLinkedList) *Node {
+	prev := l.Head
+	cur := l.Head.Next
+	temp := cur.Next
+	for cur != nil{
+		//fmt.Println("p:",prev.Data,"c:",cur.Data,"t:",temp.Data)
+		temp = cur.Next
+		cur.Next = prev
+		prev = cur
+		cur = temp
+	}
+	l.Head.Next = nil
+	return prev
+}
+
+
