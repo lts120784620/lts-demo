@@ -22,8 +22,9 @@ func ReverseList2(head *Node) *Node {
 		return head
 	}
 	n := ReverseList2(head.Next)
-	head.Next = head.Next.Next
-	head.
+	head.Next.Next = head
+	head.Next  = nil
+	return n
 }
 
 
