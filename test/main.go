@@ -28,6 +28,7 @@ func main() {
 	r.Insert(4, g)
 	r.Travelse()
 
+
 	//翻转链表
 	//head := linkedList.ReverseList(l)
 	//head2 := linkedList.ReverseList2(l.Head)
@@ -43,6 +44,10 @@ func main() {
 
 	//fmt.Println(linkedList.IsIntersect(l,r).Data)
 
-	fmt.Println(linkedList.GetIntersectionNode(l,r).Data)
+	//fmt.Println(linkedList.GetIntersectionNode(l,r).Data)
+
+	//求环形入口节点
+	g.Next = r.Head
+	fmt.Println(linkedList.DetectCycle(l).Data)
 	fmt.Println()
 }
