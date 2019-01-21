@@ -51,20 +51,29 @@ func main() {
 	//fmt.Println(linkedList.DetectCycle(l).Data)
 
 	// 合并两个有序链表
-	l1 := linkedList.New()
-	a := &linkedList.Node{"1", nil}
-	b := &linkedList.Node{"3", nil}
-	c := &linkedList.Node{"5", nil}
-	l1.Insert(1, a)
-	l1.Insert(2, b)
-	l1.Insert(3, c)
-	l2 := linkedList.New()
-	a1 := &linkedList.Node{"2", nil}
-	b1 := &linkedList.Node{"4", nil}
-	c1 := &linkedList.Node{"6", nil}
-	l2.Insert(1, a1)
-	l2.Insert(2, b1)
-	l2.Insert(3, c1)
-	linkedList.MergeTwoLists(l1,l2)
+	//l1 := linkedList.New()
+	//a := &linkedList.Node{"1", nil}
+	//b := &linkedList.Node{"3", nil}
+	//c := &linkedList.Node{"5", nil}
+	//l1.Insert(1, a)
+	//l1.Insert(2, b)
+	//l1.Insert(3, c)
+	//l2 := linkedList.New()
+	//a1 := &linkedList.Node{"2", nil}
+	//b1 := &linkedList.Node{"4", nil}
+	//c1 := &linkedList.Node{"6", nil}
+	//l2.Insert(1, a1)
+	//l2.Insert(2, b1)
+	//l2.Insert(3, c1)
+	//linkedList.MergeTwoLists(l1,l2)
+
+	// 判断回文链表
+	l := linkedList.New()
+	a := &linkedList.Node{"0", nil}
+	b := &linkedList.Node{"0", nil}
+	l.Insert(1, a)
+	l.Insert(2, b)
+
+	fmt.Println(linkedList.IsPalindrome(l))
 	fmt.Println()
 }
