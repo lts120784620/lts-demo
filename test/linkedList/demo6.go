@@ -20,3 +20,22 @@ func MergeTwoLists(l1 *MyLinkedList, l2 *MyLinkedList) *Node{
 	}
 	return dummyHead.Next
 }
+
+/**
+判断链表是否为回文链表
+ */
+func IsPalindrome(l *MyLinkedList) bool {
+	p1 := l.Head
+	p2 := l.Head
+	for p1 != nil && p2.Next != nil{
+		p1 = p1.Next
+		p2 = p2.Next.Next
+	}
+	//p1中点
+	t := p1
+	pre := p1
+	cur := p1
+	for cur != nil{
+
+	}
+}
