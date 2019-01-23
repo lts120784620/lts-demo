@@ -68,12 +68,25 @@ func main() {
 	//linkedList.MergeTwoLists(l1,l2)
 
 	// 判断回文链表
+	//l := linkedList.New()
+	//a := &linkedList.Node{"0", nil}
+	//b := &linkedList.Node{"0", nil}
+	//l.Insert(1, a)
+	//l.Insert(2, b)
+	//
+	//fmt.Println(linkedList.IsPalindrome(l))
+
 	l := linkedList.New()
 	a := &linkedList.Node{"0", nil}
 	b := &linkedList.Node{"0", nil}
+	c := &linkedList.Node{"1", nil}
+	d := &linkedList.Node{"1", nil}
 	l.Insert(1, a)
 	l.Insert(2, b)
+	l.Insert(3, c)
+	l.Insert(4, d)
+	linkedList.DeleteDuplicates(l)
+	l.Travelse()
 
-	fmt.Println(linkedList.IsPalindrome(l))
 	fmt.Println()
 }
