@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	//l := linkedList.New()
+	l := linkedList.New()
 	//a := &linkedList.Node{"a", nil}
 	//b := &linkedList.Node{"b", nil}
 	//c := &linkedList.Node{"c", nil}
@@ -17,7 +17,7 @@ func main() {
 	//l.Insert(3, c)
 	//l.Insert(4, d)
 	//l.Insert(5, g)
-	//l.Travelse()
+	l.Travelse()
 	//
 	//r := linkedList.New()
 	//e := &linkedList.Node{"e", nil}
@@ -76,17 +76,20 @@ func main() {
 	//
 	//fmt.Println(linkedList.IsPalindrome(l))
 
-	l := linkedList.New()
-	a := &linkedList.Node{"0", nil}
-	b := &linkedList.Node{"0", nil}
-	c := &linkedList.Node{"1", nil}
-	d := &linkedList.Node{"1", nil}
-	l.Insert(1, a)
-	l.Insert(2, b)
-	l.Insert(3, c)
-	l.Insert(4, d)
-	linkedList.DeleteDuplicates(l)
-	l.Travelse()
+	//l := linkedList.New()
+	//a := &linkedList.Node{"a", nil}
+	//b := &linkedList.Node{"b", nil}
+	//c := &linkedList.Node{"b", nil}
+	//d := &linkedList.Node{"b", nil}
+	//d := &linkedList.Node{"1", nil}
+	//l.Insert(1, a)
+	//l.Insert(2, b)
+	//l.Insert(3, c)
+	//l.Insert(4, d)
+	//linkedList.DeleteDuplicates(l)
+
+	//linkedList.RemoveElements(l,"a")
+	//l.Travelse()
 
 	fmt.Println()
 }
