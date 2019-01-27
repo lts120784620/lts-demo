@@ -6,6 +6,16 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func MaxDepth(root *TreeNode) {
+/**
+求给定二叉树的最大深度
+ */
+func MaxDepth(root *TreeNode) int {
+	return 0
+}
+
+/**
+翻转二叉树
+ */
+func InvertTree(root *TreeNode) *TreeNode {
 
 }
