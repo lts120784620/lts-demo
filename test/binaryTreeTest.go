@@ -2,6 +2,7 @@ package main
 
 import (
 	"lts-demo/test/binaryTree"
+	"fmt"
 )
 
 func initTree(arr []int) *binaryTree.TreeNode {
@@ -34,6 +35,22 @@ func initTree(arr []int) *binaryTree.TreeNode {
 	return list[0]
 }
 
+func travelse(root *binaryTree.TreeNode) {
+	if root == nil{
+		return
+	}
+	fmt.Print(root.Val)
+	travelse(root.Left)
+	travelse(root.Right)
+}
+
 func main() {
-	initTree([]int{3, 9, 20, 0, 0, 15, 7})
+	//root := initTree([]int{3, 9, 20, 0, 0, 15, 7})
+	//fmt.Println(binaryTree.MaxDepth(root))
+
+	travelse(initTree([]int{4,2,7,1,3,6,9}))
+	fmt.Println()
+	travelse(binaryTree.InvertTree(initTree([]int{4,2,7,1,3,6,9})))
+
+	fmt.Println()
 }
