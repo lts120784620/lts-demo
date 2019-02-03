@@ -48,9 +48,10 @@ func main() {
 	//root := initTree([]int{3, 9, 20, 0, 0, 15, 7})
 	//fmt.Println(binaryTree.MaxDepth(root))
 
-	travelse(initTree([]int{4,2,7,1,3,6,9}))
-	fmt.Println()
-	travelse(binaryTree.InvertTree(initTree([]int{4,2,7,1,3,6,9})))
+	//travelse(initTree([]int{4,2,7,1,3,6,9}))
+	//fmt.Println()
+	//travelse(binaryTree.InvertTree(initTree([]int{4,2,7,1,3,6,9})))
 
+	fmt.Println(binaryTree.IsUnivalTree(initTree([]int{2,2,2,5,2})))
 	fmt.Println()
 }
