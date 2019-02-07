@@ -52,6 +52,10 @@ func main() {
 	//fmt.Println()
 	//travelse(binaryTree.InvertTree(initTree([]int{4,2,7,1,3,6,9})))
 
-	fmt.Println(binaryTree.IsUnivalTree(initTree([]int{2,2,2,5,2})))
+	//fmt.Println(binaryTree.IsUnivalTree(initTree([]int{2,2,2,5,2})))
+
+	//fmt.Println(binaryTree.SearchBST(initTree([]int{4,2,7,1,3}),2))
+
+	travelse(binaryTree.TrimBST(initTree([]int{4,2,5,1,3}),2,3))
 	fmt.Println()
 }
