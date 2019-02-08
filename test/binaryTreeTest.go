@@ -39,7 +39,7 @@ func travelse(root *binaryTree.TreeNode) {
 	if root == nil{
 		return
 	}
-	fmt.Print(root.Val)
+	fmt.Print(root.Val,"->")
 	travelse(root.Left)
 	travelse(root.Right)
 }
@@ -56,6 +56,8 @@ func main() {
 
 	//fmt.Println(binaryTree.SearchBST(initTree([]int{4,2,7,1,3}),2))
 
-	travelse(binaryTree.TrimBST(initTree([]int{4,2,5,1,3}),2,3))
+	//travelse(binaryTree.TrimBST(initTree([]int{4,2,5,1,3}),2,3))
+
+	travelse(binaryTree.ConvertBST(initTree([]int{2,1,3})))
 	fmt.Println()
 }

@@ -64,7 +64,7 @@ func TrimBST(root *TreeNode, L, R int) *TreeNode {
 	if root.Val < L {
 		return TrimBST(root.Right, L, R)
 	}
-	if root.Val > R{
+	if root.Val > R {
 		return TrimBST(root.Left, L, R)
 	}
 	root.Left = TrimBST(root.Left, L, R)
@@ -72,8 +72,41 @@ func TrimBST(root *TreeNode, L, R int) *TreeNode {
 	return root
 }
 
-func lowestCommonAncestor(root , p ,q *TreeNode) *TreeNode {
-	if root == nil {
-
+/**
+找到两个节点最近的公共祖先
+ */
+func LowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	if root == nil || p == nil || q == nil {
+		return root
 	}
+	if (root.Val > p.Val && root.Val < q.Val )|| (root.Val < p.Val && root.Val > q.Val ){
+		return root
+	}
+	if root.Val > p.Val && root.Val > q.Val {
+		return LowestCommonAncestor(root.Left, p, q)
+	} else {
+		return LowestCommonAncestor(root.Right, p, q)
+	}
+}
+
+/**
+转换二叉搜索树为累加树，后序遍历倒过来累加，注意传参指针int
+ */
+func ConvertBST(root *TreeNode) *TreeNode {
+	if root == nil{
+		return nil
+	}
+	sum := 0
+	midorder(root,&sum)
+	return root
+}
+func midorder(root *TreeNode,sum *int)*TreeNode {
+	if root == nil{
+		return nil
+	}
+	midorder(root.Right,sum)
+	root.Val = *sum + root.Val
+	*sum = root.Val
+	midorder(root.Left,sum)
+	return root
 }
