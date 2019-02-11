@@ -79,7 +79,7 @@ func LowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	if root == nil || p == nil || q == nil {
 		return root
 	}
-	if (root.Val > p.Val && root.Val < q.Val )|| (root.Val < p.Val && root.Val > q.Val ){
+	if (root.Val > p.Val && root.Val < q.Val ) || (root.Val < p.Val && root.Val > q.Val ) {
 		return root
 	}
 	if root.Val > p.Val && root.Val > q.Val {
@@ -93,20 +93,92 @@ func LowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 转换二叉搜索树为累加树，后序遍历倒过来累加，注意传参指针int
  */
 func ConvertBST(root *TreeNode) *TreeNode {
-	if root == nil{
+	if root == nil {
 		return nil
 	}
 	sum := 0
-	midorder(root,&sum)
+	midorder(root, &sum)
 	return root
 }
-func midorder(root *TreeNode,sum *int)*TreeNode {
-	if root == nil{
+func midorder(root *TreeNode, sum *int) *TreeNode {
+	if root == nil {
 		return nil
 	}
-	midorder(root.Right,sum)
+	midorder(root.Right, sum)
 	root.Val = *sum + root.Val
 	*sum = root.Val
-	midorder(root.Left,sum)
+	midorder(root.Left, sum)
 	return root
 }
+
+/**
+二叉搜索树中找到所有众数
+ */
+func FindMode(root *TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+	arr := []int{}
+	count := 0
+	max := 0
+	cur := 0
+	midOrder(root, &arr,&count, &max, &cur)
+	return arr
+}
+func midOrder(root *TreeNode, arr *[]int, count *int ,max *int, cur *int ) {
+	if root == nil {
+		return
+	}
+	midOrder(root.Left, arr,count, max, cur)
+
+	if *cur == root.Val {
+		*count++
+	} else {
+		*cur = root.Val
+		*count = 1
+	}
+
+	if *count > *max {
+		*arr = nil
+		*max = *count
+	}
+	if *count == *max {
+		*arr = append(*arr, root.Val)
+	}
+
+	midOrder(root.Right, arr, count, max, cur)
+}
+//func FindMode(root *TreeNode) []int {
+//	if root == nil {
+//		return nil
+//	}
+//	arr := []int{}
+//	m := make(map[int]int)
+//	midOrder(root, m)
+//	max := 0
+//	//cur := 1
+//	for k, v := range m {
+//		if v == max{
+//			arr = append(arr, k)
+//		}
+//		if v > max {
+//			arr = []int{}
+//			arr = append(arr, k)
+//			max = v
+//		}
+//	}
+//	return arr
+//}
+//func midOrder(root *TreeNode, m map[int]int) {
+//	if root == nil {
+//		return
+//	}
+//	midOrder(root.Left, m)
+//	val := root.Val
+//	if v,ok := m[val]; ok {
+//		m[val] = v+1
+//	} else {
+//		m[val] = 1
+//	}
+//	midOrder(root.Right, m)
+//}
