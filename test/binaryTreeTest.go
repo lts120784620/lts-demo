@@ -81,7 +81,9 @@ func main() {
 
 	//travelse(binaryTree.ConvertBST(initTree([]interface{}{2,1,3})))
 
-	fmt.Println(binaryTree.FindMode(initTree([]interface{}{1,nil,2,2})))
+	//fmt.Println(binaryTree.FindMode(initTree([]interface{}{1,nil,2,2})))
 	//fmt.Println(binaryTree.FindMode(initTree([]interface{}{2,2})))
+
+	fmt.Println(binaryTree.LevelOrderBottom(initTree([]interface{}{1,nil,2,2})))
 	fmt.Println()
 }
