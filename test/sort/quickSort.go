@@ -33,15 +33,15 @@ func partition(arr []int, start, end int) int {
 		for i < j && arr[i] <= pivot {
 			i++
 		}
-		swap(arr, i, j)
+		Swap(arr, i, j)
 	}
 	// 将标志位置和相遇位置，交换
-	swap(arr, start, i)
+	Swap(arr, start, i)
 	return i
 }
 
 //交换
-func swap(arr []int, x, y int) {
+func Swap(arr []int, x, y int) {
 	t := arr[x]
 	arr[x] = arr[y]
 	arr[y] = t
