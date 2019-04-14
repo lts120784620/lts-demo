@@ -84,6 +84,10 @@ func main() {
 	//fmt.Println(binaryTree.FindMode(initTree([]interface{}{1,nil,2,2})))
 	//fmt.Println(binaryTree.FindMode(initTree([]interface{}{2,2})))
 
-	fmt.Println(binaryTree.LevelOrderBottom(initTree([]interface{}{1,nil,2,2})))
+	//fmt.Println(binaryTree.LevelOrderBottom(initTree([]interface{}{1,nil,2,2})))
+
+	//fmt.Println(binaryTree.LevelOrderBottom2(initTree([]interface{}{3,9,20,nil,nil,15,17})))
+
+	fmt.Println(binaryTree.InorderTraversal(initTree([]interface{}{3,9,20,nil,nil,15,17})))
 	fmt.Println()
 }
