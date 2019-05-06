@@ -1,13 +1,8 @@
 package main
 
-import "time"
+import "fmt"
 
 func main() {
-	i:=0
-	for true{
-		i++
-		time.Sleep(1000 * 1000 * 1000)
-		println("文件传输中", i ,"，请勿离开。")
-		println("souf------ <<<<<<<< ------------ >>>>>>>")
-	}
+	avg := float64(29 / 2.0)
+	fmt.Printf("%f",avg)
 }

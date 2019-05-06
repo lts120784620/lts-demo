@@ -45,6 +45,7 @@ func initTree(data []interface{}) *binaryTree.TreeNode {
 	}
 	return root
 }
+
 // 根据数据来创建一个新的节点
 func newNodeFromData(val interface{}) *binaryTree.TreeNode {
 	switch t := val.(type) {
@@ -57,10 +58,10 @@ func newNodeFromData(val interface{}) *binaryTree.TreeNode {
 	}
 }
 func travelse(root *binaryTree.TreeNode) {
-	if root == nil{
+	if root == nil {
 		return
 	}
-	fmt.Print(root.Val,"->")
+	fmt.Print(root.Val, "->")
 	travelse(root.Left)
 	travelse(root.Right)
 }
@@ -88,6 +89,13 @@ func main() {
 
 	//fmt.Println(binaryTree.LevelOrderBottom2(initTree([]interface{}{3,9,20,nil,nil,15,17})))
 
-	fmt.Println(binaryTree.InorderTraversal(initTree([]interface{}{3,9,20,nil,nil,15,17})))
+	//fmt.Println(binaryTree.InorderTraversal(initTree([]interface{}{3,9,20,nil,nil,15,17})))
+
+	res := []string{}
+	binaryTree.GetDepth(initTree([]interface{}{1, 2, 3, nil, 5}), "", res)
+	for _,j:= range res {
+		fmt.Println(j)
+	}
+
 	fmt.Println()
 }
