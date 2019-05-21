@@ -1,2 +1,2 @@
 # lts-demo
-demo
+练习专用demo
