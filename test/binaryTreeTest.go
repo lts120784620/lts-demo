@@ -91,7 +91,8 @@ func main() {
 
 	//fmt.Println(binaryTree.InorderTraversal(initTree([]interface{}{3,9,20,nil,nil,15,17})))
 
-	fmt.Println(binaryTree.BinaryTreePaths(initTree([]interface{}{1,2,3,nil,5})))
+	//fmt.Println(binaryTree.BinaryTreePaths(initTree([]interface{}{1,2,3,nil,5})))
 
+	fmt.Println(binaryTree.HasPathSum(initTree([]interface{}{1}),3))
 	fmt.Println()
 }
