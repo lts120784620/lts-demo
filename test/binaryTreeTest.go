@@ -95,8 +95,12 @@ func main() {
 
 	//fmt.Println(binaryTree.HasPathSum(initTree([]interface{}{1}),3))
 
-	root1 := initTree([]interface{}{44,79,25,nil,nil,112,7,74,49,2,122})
-	root2 := initTree([]interface{}{38,86,120,49,54,2,122,nil,nil,74,79})
-	fmt.Println(binaryTree.LeafSimilar(root1, root2))
+	//root1 := initTree([]interface{}{44,79,25,nil,nil,112,7,74,49,2,122})
+	//root2 := initTree([]interface{}{38,86,120,49,54,2,122,nil,nil,74,79})
+	//fmt.Println(binaryTree.LeafSimilar(root1, root2))
+
+	//fmt.Println(binaryTree.IncresingBST(initTree([]interface{}{5,3,6,2,4,nil,8,1,nil,nil,nil,7,9})))
+
+	fmt.Println(binaryTree.GetMinimumDifference(initTree([]interface{}{5,4,7})))
 	fmt.Println()
 }

@@ -1,6 +1,8 @@
 package binaryTree
 
-import "lts-demo/test/common"
+import (
+	"lts-demo/test/common"
+)
 
 // 求二叉树的路径之和是否等于sum值
 func HasPathSum(root *TreeNode, sum int) bool {
@@ -38,54 +40,84 @@ func HasPathSum(root *TreeNode, sum int) bool {
 // 思路:两个栈，分别存放两个树节点，判断叶子节点
 func LeafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 	res := false
-	if root1 == nil || root2 == nil{
+	if root1 == nil || root2 == nil {
 		return false
 	}
 	s1 := common.NewStack()
 	s2 := common.NewStack()
 	s1.Push(root1)
 	s2.Push(root2)
-	for !s1.IsEmpty() && !s2.IsEmpty(){
+	for !s1.IsEmpty() && !s2.IsEmpty() {
 		node1 := s1.Pop().(*TreeNode)
 		node2 := s2.Pop().(*TreeNode)
-		for node1.Left != nil || node1.Right != nil{
-			if node1.Right != nil{
+		for node1.Left != nil || node1.Right != nil {
+			if node1.Right != nil {
 				s1.Push(node1.Right)
 			}
-			if node1.Left != nil{
+			if node1.Left != nil {
 				s1.Push(node1.Left)
 			}
 			node1 = s1.Pop().(*TreeNode)
 		}
-		for node2.Left != nil || node2.Right != nil{
-			if node2.Right != nil{
+		for node2.Left != nil || node2.Right != nil {
+			if node2.Right != nil {
 				s2.Push(node2.Right)
 			}
-			if node2.Left != nil{
+			if node2.Left != nil {
 				s2.Push(node2.Left)
 			}
 			node2 = s2.Pop().(*TreeNode)
 		}
-		if node1.Val != node2.Val{
+		if node1.Val != node2.Val {
 			return false
-		}else{
+		} else {
 			res = true
 		}
 	}
 	return res
 }
 
-//func LeafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
-//	if root1 == nil || root2 == nil{
-//		return false
-//	}
-//	for root1.Left == nil && root1.Right == nil {
-//
-//	}
-//	if root2.Left == nil && root2.Right == nil {
-//
-//	}
-//	if root1.Left != nil {
-//		return false
-//	}
-//}
+// 中序遍历节点，生成一个只有右节点的树
+// 思路：中序遍历数组，重新生成树
+func IncresingBST(root *TreeNode) *TreeNode {
+	res := &TreeNode{}
+	if root == nil {
+		return res
+	}
+	var arr []int
+	midleOrder(root, &arr)
+	next := &TreeNode{}
+	res.Right = next
+	for _, i := range arr {
+		n := &TreeNode{Val:i}
+		next.Right = n
+		next = next.Right
+	}
+	return res.Right.Right
+}
+
+func midleOrder(root *TreeNode, arr *[]int) {
+	if root == nil {
+		return
+	}
+	midleOrder(root.Left, arr)
+	*arr = append(*arr,root.Val )
+	midleOrder(root.Right, arr)
+}
+
+// 求二叉搜索树任意两个节点的差绝对值最小
+// 思路：二叉搜索树的中序遍历结果为从小到的排列，在计算相邻元素最小的绝对值
+func GetMinimumDifference(root *TreeNode) int {
+	res := 9999
+	if root == nil {
+		return res
+	}
+	var arr []int
+	midleOrder(root, &arr)
+	for i:=len(arr)-1;i>0;i-- {
+		if arr[i] - arr[i-1] < res {
+			res = arr[i] - arr[i-1]
+		}
+	}
+	return res
+}
