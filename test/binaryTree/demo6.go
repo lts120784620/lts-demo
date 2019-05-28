@@ -89,7 +89,7 @@ func IncresingBST(root *TreeNode) *TreeNode {
 	next := &TreeNode{}
 	res.Right = next
 	for _, i := range arr {
-		n := &TreeNode{Val:i}
+		n := &TreeNode{Val: i}
 		next.Right = n
 		next = next.Right
 	}
@@ -101,7 +101,7 @@ func midleOrder(root *TreeNode, arr *[]int) {
 		return
 	}
 	midleOrder(root.Left, arr)
-	*arr = append(*arr,root.Val )
+	*arr = append(*arr, root.Val)
 	midleOrder(root.Right, arr)
 }
 
@@ -114,10 +114,30 @@ func GetMinimumDifference(root *TreeNode) int {
 	}
 	var arr []int
 	midleOrder(root, &arr)
-	for i:=len(arr)-1;i>0;i-- {
-		if arr[i] - arr[i-1] < res {
+	for i := len(arr) - 1; i > 0; i-- {
+		if arr[i]-arr[i-1] < res {
 			res = arr[i] - arr[i-1]
 		}
 	}
 	return res
+}
+
+// 求两颗二叉树是否完全相同
+// 思路：同时遍历两个二叉树，注意为空的时候
+func IsSameTree(p *TreeNode, q *TreeNode) bool {
+	return preOrder(p,q)
+}
+
+func preOrder(p *TreeNode, q *TreeNode) bool {
+	if p == nil && q == nil{
+		return true
+	}
+	if p == nil || q == nil {
+		return false
+	}
+	if p.Val != q.Val{
+		return false
+	}
+
+	return preOrder(p.Left, q.Left) && preOrder(p.Right, q.Right)
 }
