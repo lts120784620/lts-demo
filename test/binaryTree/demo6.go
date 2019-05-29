@@ -1,6 +1,7 @@
 package binaryTree
 
 import (
+	"fmt"
 	"lts-demo/test/common"
 )
 
@@ -140,4 +141,35 @@ func preOrder(p *TreeNode, q *TreeNode) bool {
 	}
 
 	return preOrder(p.Left, q.Left) && preOrder(p.Right, q.Right)
+}
+
+// 二叉搜索树结点最小距离
+// 思路：中序遍历，找到最小差值，非递归遍历↓
+func MinDiffInBST(root *TreeNode) int {
+	res := 100
+	if root == nil{
+		return 0
+	}
+	s := common.NewStack()
+	node := root
+	last := -1
+	for !s.IsEmpty() || node != nil{
+		if node != nil{
+			s.Push(node)
+			node = node.Left
+		}else{
+			node = s.Pop().(*TreeNode)
+			if last <0 {
+				last = node.Val
+			}else{
+				if node.Val - last < res{
+					res = node.Val - last
+				}
+				last = node.Val
+			}
+			fmt.Println(node.Val)
+			node= node.Right
+		}
+	}
+	return res
 }
