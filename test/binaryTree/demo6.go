@@ -173,3 +173,29 @@ func MinDiffInBST(root *TreeNode) int {
 	}
 	return res
 }
+
+// 求二叉搜索树中是否存在两个节点的和 等于给定的值
+// 思路：中序遍历得到有序数组，两个指针快速找到值
+func findTarget(root *TreeNode,k int) bool {
+	res := false
+	arr := []int{}
+	midleOrder(root,&arr)
+	p := 0
+	q := len(arr) - 1
+	for p != q{
+		if arr[p] + arr[q] == k {
+			res = true
+			break
+		}
+		if arr[p] + arr[q] > k{
+			q--
+			continue
+		}
+		if arr[p] + arr[q] < k{
+			p++
+			continue
+		}
+	}
+	return res
+}
+
