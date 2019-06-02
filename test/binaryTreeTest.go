@@ -107,6 +107,8 @@ func main() {
 	//root2 := initTree([]interface{}{1, nil, 2})
 	//fmt.Println(binaryTree.IsSameTree(root1, root2))
 
-	fmt.Println(binaryTree.MinDiffInBST(initTree([]interface{}{27,nil,34,nil,58,50,nil,44,nil,nil,nil})))
+	//fmt.Println(binaryTree.MinDiffInBST(initTree([]interface{}{27,nil,34,nil,58,50,nil,44,nil,nil,nil})))
+
+	fmt.Println(binaryTree.Tree2str(initTree([]interface{}{1,2,3,nil,4})))
 	fmt.Println()
 }
