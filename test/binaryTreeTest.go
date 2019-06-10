@@ -113,6 +113,10 @@ func main() {
 
 	//fmt.Println(binaryTree.RangeSumBST(initTree([]interface{}{10,5,15,3,7,nil,18}),7,15))
 
-	fmt.Println(binaryTree.SumOfLeftLeaves(initTree([]interface{}{3,9,20,nil,nil,15,7})))
+	//fmt.Println(binaryTree.SumOfLeftLeaves(initTree([]interface{}{3,9,20,nil,nil,15,7})))
+
+	//fmt.Println(binaryTree.PathSum(initTree([]interface{}{10,5,-3,3,2,nil,11,3,-2,nil,1}),8))
+
+	fmt.Println(binaryTree.FindTilt(initTree([]interface{}{1,2})))
 	fmt.Println()
 }
