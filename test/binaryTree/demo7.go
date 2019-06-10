@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"lts-demo/test/common"
 	"strconv"
+	"math"
 )
 
 // 无厘头的题目
@@ -89,54 +90,20 @@ func _preOrder(root *TreeNode, sum int, res *int) {
 	_preOrder(root.Right, sum, res)
 }
 
-
+// 思路:后续遍历,左右中
 func FindTilt(root *TreeNode) int {
-	//if root == nil {
-	//	return 0
-	//}
-	//if root.Left != nil && root.Right != nil{
-	//	i := root.Left.Val - root.Right.Val
-	//	if i <0 {
-	//		i = i*-1
-	//	}
-	//	return i
-	//}
-	//if root.Left == nil && root.Right == nil{
-	//	return 0
-	//}
-	//if root.Left == nil {
-	//	return root.Right.Val
-	//}
-	//if root.Right == nil {
-	//	return root.Left.Val
-	//}
-	//return FindTilt(root.Left) + FindTilt(root.Right)
 	res := 0
-	preOrder3(root,&res)
+	postOrder(root,&res)
 	return res
 }
 
-func preOrder3(root *TreeNode, sum *int) {
+func postOrder(root *TreeNode, sum *int) int{
 	if root == nil {
-		return
-	}
-	if root.Left != nil && root.Right != nil{
-		i := root.Left.Val - root.Right.Val
-		if i <0 {
-			i = i*-1
-		}
-		*sum += i
-	}
-	if root.Left == nil && root.Right == nil{
-		return
-	}
-	if root.Left == nil {
-		*sum +=root.Right.Val
-	}
-	if root.Right == nil {
-		*sum += root.Left.Val
+		return 0
 	}
 
-	preOrder3(root.Left, sum)
-	preOrder3(root.Right, sum)
+	l := postOrder(root.Left, sum)
+	r := postOrder(root.Right, sum)
+	*sum+=int(math.Abs(float64(l-r)))
+	return l + r + root.Val
 }

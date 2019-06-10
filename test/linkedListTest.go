@@ -3,9 +3,14 @@ package main
 import (
 	"lts-demo/test/linkedList"
 	"fmt"
+	"github.com/toolkits/time"
+	"strconv"
 )
 
 func main() {
+
+	fmt.Println(len(strconv.Itoa(1551425031780)))
+	fmt.Println(time.FormatTs(1551425031780))
 	l := linkedList.New()
 	//a := &linkedList.Node{"a", nil}
 	//b := &linkedList.Node{"b", nil}

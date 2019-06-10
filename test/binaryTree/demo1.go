@@ -49,8 +49,7 @@ func InvertTree(root *TreeNode) *TreeNode {
 	left := InvertTree(root.Left)
 	right := InvertTree(root.Right)
 	// exchange
-	t := left
 	root.Left = right
-	root.Right = t
+	root.Right = left
 	return root
 }
