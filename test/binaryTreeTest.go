@@ -117,6 +117,8 @@ func main() {
 
 	//fmt.Println(binaryTree.PathSum(initTree([]interface{}{10,5,-3,3,2,nil,11,3,-2,nil,1}),8))
 
-	fmt.Println(binaryTree.FindTilt(initTree([]interface{}{1,2})))
+	//fmt.Println(binaryTree.FindTilt(initTree([]interface{}{1,2,3,4,nil,5})))
+
+	fmt.Println(binaryTree.IsBalanced(initTree([]interface{}{1,2,2,3,3,nil,nil,4,4})))
 	fmt.Println()
 }

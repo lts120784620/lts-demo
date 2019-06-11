@@ -77,8 +77,8 @@ func pathOrder(root *TreeNode, sum int, res *int) {
 		*res += 1
 		fmt.Println(root.Val)
 	}
-	pathOrder(root.Left, sum - root.Val, res)
-	pathOrder(root.Right, sum - root.Val, res)
+	pathOrder(root.Left, sum-root.Val, res)
+	pathOrder(root.Right, sum-root.Val, res)
 }
 
 func _preOrder(root *TreeNode, sum int, res *int) {
@@ -93,17 +93,43 @@ func _preOrder(root *TreeNode, sum int, res *int) {
 // 思路:后续遍历,左右中
 func FindTilt(root *TreeNode) int {
 	res := 0
-	postOrder(root,&res)
+	postOrder(root, &res)
 	return res
 }
 
-func postOrder(root *TreeNode, sum *int) int{
+func postOrder(root *TreeNode, sum *int) int {
 	if root == nil {
 		return 0
 	}
 
 	l := postOrder(root.Left, sum)
 	r := postOrder(root.Right, sum)
-	*sum+=int(math.Abs(float64(l-r)))
+	*sum += int(math.Abs(float64(l - r)))
 	return l + r + root.Val
+}
+
+// 求是否为平衡二叉树（左右节点高度差相差小于1）
+// 思路：后序遍历，每次返回左右子树高度
+func IsBalanced(root *TreeNode) bool {
+	res := true
+	postOrder2(root,&res)
+	return res
+}
+
+func postOrder2(root *TreeNode, balance *bool) int {
+	if root == nil {
+		return 0
+	}
+
+	l := postOrder2(root.Left,  balance)
+	r := postOrder2(root.Right,  balance)
+	if math.Abs(float64(l-r)) > 1 {
+		*balance = false
+	}
+	high := r
+	if l > r{
+		high = l
+	}
+	high +=1
+	return high
 }
