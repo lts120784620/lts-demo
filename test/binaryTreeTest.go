@@ -119,6 +119,8 @@ func main() {
 
 	//fmt.Println(binaryTree.FindTilt(initTree([]interface{}{1,2,3,4,nil,5})))
 
-	fmt.Println(binaryTree.IsBalanced(initTree([]interface{}{1,2,2,3,3,nil,nil,4,4})))
+	//fmt.Println(binaryTree.IsBalanced(initTree([]interface{}{1,2,2,3,3,nil,nil,4,4})))
+
+	fmt.Println(binaryTree.IsSymmtric(initTree([]interface{}{1,2,2,2,nil,2})))
 	fmt.Println()
 }
