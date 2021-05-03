@@ -1,9 +1,9 @@
-package linkedList
+package linkedlist
 
 /**
 判断两个链表是否相交（无环）
  */
-func IsIntersect(l *MyLinkedList, r *MyLinkedList) *Node {
+func IsIntersect(l *MyLinkedList, r *MyLinkedList) *ListNode {
 	n1 := l.Head
 	for n1.Next != nil {
 		n1 = n1.Next
@@ -21,7 +21,7 @@ func IsIntersect(l *MyLinkedList, r *MyLinkedList) *Node {
 /**
  获取两个链表第一次相交的节点
  */
-func GetIntersectionNode(l *MyLinkedList, r *MyLinkedList) *Node {
+func GetIntersectionNode(l *MyLinkedList, r *MyLinkedList) *ListNode {
 	// 计算两条链表长度
 	var len1, len2 int
 	p1 := l.Head
@@ -62,7 +62,7 @@ func GetIntersectionNode(l *MyLinkedList, r *MyLinkedList) *Node {
 /**
 获取两个链表第一次相交的节点(更优)
  */
-func GetIntersectionNode2(l *MyLinkedList, r *MyLinkedList) *Node {
+func GetIntersectionNode2(l *MyLinkedList, r *MyLinkedList) *ListNode {
 	p1 := l.Head
 	p2 := r.Head
 	if p1 == nil || p2 == nil {

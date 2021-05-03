@@ -1,14 +1,14 @@
-package linkedList
+package linkedlist
 
 import "fmt"
 
 /**
 合并两个有序链表
  */
-func MergeTwoLists(l1 *MyLinkedList, l2 *MyLinkedList) *Node{
+func MergeTwoLists(l1 *MyLinkedList, l2 *MyLinkedList) *ListNode {
 	p1 := l1.Head.Next
 	p2 := l2.Head.Next
-	dummyHead := &Node{"",p1}
+	dummyHead := &ListNode{"",p1}
 	for p2 != nil{
 		if p1.Next != nil && p1.Data <= p2.Data{
 			p1 = p1.Next
@@ -39,9 +39,9 @@ func IsPalindrome(l *MyLinkedList) bool {
 	//p1中点
 	// 翻转后一半链表
 	//fmt.Println(p1.Data,p2.Data)
-	var pre *Node
+	var pre *ListNode
 	cur := p1.Next
-	var next *Node
+	var next *ListNode
 	//fmt.Println(pre.Data,cur.Data,next.Data)
 	for cur != nil{
 		next = cur.Next

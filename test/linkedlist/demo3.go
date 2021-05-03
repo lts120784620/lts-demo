@@ -1,9 +1,9 @@
-package linkedList
+package linkedlist
 
 /**
  删除倒数第k个节点
  */
-func GetNthFromEnd(l *MyLinkedList, k int) *Node {
+func GetNthFromEnd(l *MyLinkedList, k int) *ListNode {
 	first := l.Head
 	second := l.Head
 	i := 0

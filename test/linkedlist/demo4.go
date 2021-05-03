@@ -1,9 +1,9 @@
-package linkedList
+package linkedlist
 
 /**
  求链表的中间节点
  */
-func MiddleNode(l *MyLinkedList) *Node{
+func MiddleNode(l *MyLinkedList) *ListNode {
 	slow := l.Head
 	fast := l.Head
 	if l.Head.Next == nil {
@@ -35,11 +35,11 @@ func HasCycle(l *MyLinkedList) bool {
 /**
  获取环形链表的入口节点
  */
-func DetectCycle(l *MyLinkedList) *Node{
+func DetectCycle(l *MyLinkedList) *ListNode {
 	// 用双指针法，先找到两个指针相遇的点
 	fast := l.Head
 	slow := l.Head
-	var counter *Node
+	var counter *ListNode
 	for slow != nil && fast != nil && fast.Next !=nil{
 		// fast走两步
 		fast = fast.Next.Next

@@ -1,9 +1,9 @@
-package linkedList
+package linkedlist
 
 /**
  删除给定排序链表中的所有重复元素
  */
-func DeleteDuplicates(l *MyLinkedList) *Node {
+func DeleteDuplicates(l *MyLinkedList) *ListNode {
 	head := l.Head.Next
 	if head == nil {
 		return nil
@@ -25,7 +25,7 @@ func DeleteDuplicates(l *MyLinkedList) *Node {
 /**
  删除链表中相同的所有节点
  */
-func RemoveElements(l *MyLinkedList,val string) *Node{
+func RemoveElements(l *MyLinkedList,val string) *ListNode {
 	head := l.Head.Next
 	for head != nil && head.Data == val{
 		head = head.Next

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"lts-demo/test/linkedList"
+	"lts-demo/test/linkedlist"
 	"fmt"
 	"github.com/toolkits/time"
 	"strconv"
@@ -11,12 +11,12 @@ func main() {
 
 	fmt.Println(len(strconv.Itoa(1551425031780)))
 	fmt.Println(time.FormatTs(1551425031780))
-	l := linkedList.New()
-	//a := &linkedList.Node{"a", nil}
-	//b := &linkedList.Node{"b", nil}
-	//c := &linkedList.Node{"c", nil}
-	//d := &linkedList.Node{"d", nil}
-	//g := &linkedList.Node{"g", nil}
+	l := linkedlist.New()
+	//a := &linkedlist.ListNode{"a", nil}
+	//b := &linkedlist.ListNode{"b", nil}
+	//c := &linkedlist.ListNode{"c", nil}
+	//d := &linkedlist.ListNode{"d", nil}
+	//g := &linkedlist.ListNode{"g", nil}
 	//l.Insert(1, a)
 	//l.Insert(2, b)
 	//l.Insert(3, c)
@@ -24,9 +24,9 @@ func main() {
 	//l.Insert(5, g)
 	l.Travelse()
 	//
-	//r := linkedList.New()
-	//e := &linkedList.Node{"e", nil}
-	//f := &linkedList.Node{"f", nil}
+	//r := linkedlist.New()
+	//e := &linkedlist.ListNode{"e", nil}
+	//f := &linkedlist.ListNode{"f", nil}
 	//r.Insert(1, e)
 	//r.Insert(2, f)
 	//r.Insert(3, d)
@@ -35,65 +35,65 @@ func main() {
 
 
 	//翻转链表
-	//head := linkedList.ReverseList(l)
-	//head2 := linkedList.ReverseList2(l.Head)
-	//linkedList.TravelseHead(head)
-	//linkedList.TravelseHead(head2)
+	//head := linkedlist.ReverseList(l)
+	//head2 := linkedlist.ReverseList2(l.Head)
+	//linkedlist.TravelseHead(head)
+	//linkedlist.TravelseHead(head2)
 
 	// 删除倒数k个节点
-	//fmt.Println(linkedList.GetNthFromEnd(l,1).Data)
+	//fmt.Println(linkedlist.GetNthFromEnd(l,1).Data)
 
-	//fmt.Println(linkedList.MiddleNode(l).Data)
+	//fmt.Println(linkedlist.MiddleNode(l).Data)
 
-	//fmt.Println(linkedList.HasCycle(l))
+	//fmt.Println(linkedlist.HasCycle(l))
 
-	//fmt.Println(linkedList.IsIntersect(l,r).Data)
+	//fmt.Println(linkedlist.IsIntersect(l,r).Data)
 
-	//fmt.Println(linkedList.GetIntersectionNode(l,r).Data)
+	//fmt.Println(linkedlist.GetIntersectionNode(l,r).Data)
 
 	//求环形入口节点
 	//g.Next = r.Head
-	//fmt.Println(linkedList.DetectCycle(l).Data)
+	//fmt.Println(linkedlist.DetectCycle(l).Data)
 
 	// 合并两个有序链表
-	//l1 := linkedList.New()
-	//a := &linkedList.Node{"1", nil}
-	//b := &linkedList.Node{"3", nil}
-	//c := &linkedList.Node{"5", nil}
+	//l1 := linkedlist.New()
+	//a := &linkedlist.ListNode{"1", nil}
+	//b := &linkedlist.ListNode{"3", nil}
+	//c := &linkedlist.ListNode{"5", nil}
 	//l1.Insert(1, a)
 	//l1.Insert(2, b)
 	//l1.Insert(3, c)
-	//l2 := linkedList.New()
-	//a1 := &linkedList.Node{"2", nil}
-	//b1 := &linkedList.Node{"4", nil}
-	//c1 := &linkedList.Node{"6", nil}
+	//l2 := linkedlist.New()
+	//a1 := &linkedlist.ListNode{"2", nil}
+	//b1 := &linkedlist.ListNode{"4", nil}
+	//c1 := &linkedlist.ListNode{"6", nil}
 	//l2.Insert(1, a1)
 	//l2.Insert(2, b1)
 	//l2.Insert(3, c1)
-	//linkedList.MergeTwoLists(l1,l2)
+	//linkedlist.MergeTwoLists(l1,l2)
 
 	// 判断回文链表
-	//l := linkedList.New()
-	//a := &linkedList.Node{"0", nil}
-	//b := &linkedList.Node{"0", nil}
+	//l := linkedlist.New()
+	//a := &linkedlist.ListNode{"0", nil}
+	//b := &linkedlist.ListNode{"0", nil}
 	//l.Insert(1, a)
 	//l.Insert(2, b)
 	//
-	//fmt.Println(linkedList.IsPalindrome(l))
+	//fmt.Println(linkedlist.IsPalindrome(l))
 
-	//l := linkedList.New()
-	//a := &linkedList.Node{"a", nil}
-	//b := &linkedList.Node{"b", nil}
-	//c := &linkedList.Node{"b", nil}
-	//d := &linkedList.Node{"b", nil}
-	//d := &linkedList.Node{"1", nil}
+	//l := linkedlist.New()
+	//a := &linkedlist.ListNode{"a", nil}
+	//b := &linkedlist.ListNode{"b", nil}
+	//c := &linkedlist.ListNode{"b", nil}
+	//d := &linkedlist.ListNode{"b", nil}
+	//d := &linkedlist.ListNode{"1", nil}
 	//l.Insert(1, a)
 	//l.Insert(2, b)
 	//l.Insert(3, c)
 	//l.Insert(4, d)
-	//linkedList.DeleteDuplicates(l)
+	//linkedlist.DeleteDuplicates(l)
 
-	//linkedList.RemoveElements(l,"a")
+	//linkedlist.RemoveElements(l,"a")
 	//l.Travelse()
 
 	fmt.Println()
