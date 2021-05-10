@@ -1,5 +1,10 @@
 package heap
 
+import (
+	"fmt"
+	"testing"
+)
+
 /**
 No.239 滑动窗口最大值
 描述：
@@ -20,6 +25,13 @@ No.239 滑动窗口最大值
 	2、使用双端队列的方式
 */
 
-func maxSlidingWindow(nums []int, k int) []int {
+func TestName(t *testing.T) {
+	nums := []int{1,3,-1,-3,5,3,6,7}
+	k := 3
+	fmt.Println(maxSlidingWindow(nums, k))
+}
 
+func maxSlidingWindow(nums []int, k int) []int {
+	res := []int{}
+	return res
 }

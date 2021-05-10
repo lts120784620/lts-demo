@@ -38,17 +38,17 @@ func (this *KthLargest) Add(val int) int {
 	if this.Pq.Len() > this.K{
 		this.Pq.Pop()
 	}
-	// todo list
-	// peek方法
-	return this.Pq.
+	return this.Pq.Peek().(*Item).value.(int)
 }
 
 func TestKthLargest(t *testing.T) {
-	nums := []int{}
+	// todo 错误
+	nums := []int{4, 5, 8, 2}
 	k := 3
 	kth := Constructor(k, nums)
-	fmt.Println(kth.Add(5))
 	fmt.Println(kth.Add(3))
-	fmt.Println(kth.Add(1))
-	fmt.Println(kth.Add(6))
+	fmt.Println(kth.Add(5))
+	fmt.Println(kth.Add(10))
+	fmt.Println(kth.Add(9))
+	fmt.Println(kth.Add(4))
 }

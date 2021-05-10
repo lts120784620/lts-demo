@@ -1,6 +1,8 @@
 package heap
 
-import "container/heap"
+import (
+	"container/heap"
+)
 
 /**
 思路：优先级队列（堆实现）
@@ -8,7 +10,7 @@ import "container/heap"
 
 type Item struct {
 	value    interface{} // The value of the item; arbitrary.
-	priority int    // The priority of the item in the queue.
+	priority int         // The priority of the item in the queue.
 	// The index is needed by update and is maintained by the heap.Interface methods.
 	index int // The index of the item in the heap.
 }
@@ -30,11 +32,11 @@ func New(items map[int]interface{}) PriorityQueue {
 	pq := []*Item{}
 	i := 0
 	for priority, value := range items {
-		pq[i] = &Item{
+		pq = append(pq, &Item{
 			value:    value,
 			priority: priority,
 			index:    i,
-		}
+		})
 		i++
 	}
 	return pq
@@ -51,7 +53,9 @@ func (pq *PriorityQueue) update(item *Item, value string, priority int) {
 
 func (pq *PriorityQueue) Push(x interface{}) {
 	n := len(*pq)
-	item := x.(*Item)
+	item := &Item{
+		value: x,
+	}
 	item.index = n
 	*pq = append(*pq, item)
 }
@@ -62,5 +66,12 @@ func (pq *PriorityQueue) Pop() interface{} {
 	item := old[n-1]
 	item.index = -1 // for safety
 	*pq = old[0 : n-1]
+	return item
+}
+
+func (pq *PriorityQueue) Peek() interface{} {
+	old := *pq
+	n := len(old)
+	item := old[n-1]
 	return item
 }
