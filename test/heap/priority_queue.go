@@ -2,6 +2,8 @@ package heap
 
 import (
 	"container/heap"
+	"fmt"
+	"lts-demo/test/queue"
 )
 
 /**
@@ -19,7 +21,7 @@ type PriorityQueue []*Item
 
 func (pq PriorityQueue) Less(i, j int) bool {
 	// We want Pop to give us the highest, not lowest, priority so we use greater than here.
-	return pq[i].priority > pq[j].priority
+	return pq[i].priority < pq[j].priority
 }
 
 func (pq PriorityQueue) Swap(i, j int) {
@@ -28,24 +30,26 @@ func (pq PriorityQueue) Swap(i, j int) {
 	pq[j].index = j
 }
 
-func New(items map[int]interface{}) PriorityQueue {
-	pq := []*Item{}
+func New(items map[interface{}]int) PriorityQueue {
+	pq := make(PriorityQueue, len(items))
 	i := 0
-	for priority, value := range items {
-		pq = append(pq, &Item{
+	for value, priority := range items {
+		pq[i] = &Item{
 			value:    value,
 			priority: priority,
 			index:    i,
-		})
+		}
 		i++
 	}
+	// 初始化堆
+	heap.Init(&pq)
 	return pq
 }
 
 func (pq PriorityQueue) Len() int { return len(pq) }
 
 // update modifies the priority and value of an Item in the queue.
-func (pq *PriorityQueue) update(item *Item, value string, priority int) {
+func (pq *PriorityQueue) update(item *Item, value interface{}, priority int) {
 	item.value = value
 	item.priority = priority
 	heap.Fix(pq, item.index)
@@ -54,7 +58,8 @@ func (pq *PriorityQueue) update(item *Item, value string, priority int) {
 func (pq *PriorityQueue) Push(x interface{}) {
 	n := len(*pq)
 	item := &Item{
-		value: x,
+		value:    x,
+		priority: x.(int),
 	}
 	item.index = n
 	*pq = append(*pq, item)
@@ -70,8 +75,34 @@ func (pq *PriorityQueue) Pop() interface{} {
 }
 
 func (pq *PriorityQueue) Peek() interface{} {
-	old := *pq
-	n := len(old)
-	item := old[n-1]
-	return item
+	return (*pq)[0]
+}
+
+func (pq *PriorityQueue) PrintHeap() {
+	size := (*pq).Len()
+	// 找头结点，打印
+	children := queue.New()
+	children.Enqueue(0)
+	for !children.IsEmpty() {
+		var column []int
+		cLen := children.Len()
+		for i := 0; i < cLen; i++ {
+			n := children.Dequeue().(int)
+			// 打印根节点
+			//fmt.Println((*pq)[n].value)
+			column = append(column, (*pq)[n].value.(int))
+			if 2*n+1 > size-1 {
+				continue
+			}
+			// 放左孩子
+			children.Enqueue(2*n + 1)
+			if 2*n+2 > size-1 {
+				continue
+			}
+			// 放右孩子
+			children.Enqueue(2*n + 2)
+		}
+		fmt.Println(column)
+	}
+	fmt.Println("*********************")
 }

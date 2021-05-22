@@ -1,6 +1,7 @@
 package heap
 
 import (
+	"container/heap"
 	"fmt"
 	"testing"
 )
@@ -24,31 +25,38 @@ type KthLargest struct {
 }
 
 func Constructor(k int, nums []int) KthLargest {
-	nItems := map[int]interface{}{}
-	for _, j := range nums {
-		nItems[j] = j
+	m := map[interface{}]int{}
+	for _, n := range nums {
+		m[n] = n
 	}
-	return KthLargest{
-		New(nItems), k,
-	}
+	kHeap := KthLargest{New(m), k,}
+	return kHeap
 }
 
 func (this *KthLargest) Add(val int) int {
-	this.Pq.Push(val)
-	if this.Pq.Len() > this.K{
-		this.Pq.Pop()
+	if this.Pq.Len() < this.K{
+		heap.Push(&this.Pq, val)
+	}else if this.Pq.Peek().(*Item).value.(int) < val{
+		heap.Pop(&this.Pq)
+		heap.Push(&this.Pq, val)
 	}
 	return this.Pq.Peek().(*Item).value.(int)
 }
 
 func TestKthLargest(t *testing.T) {
-	// todo 错误
-	nums := []int{4, 5, 8, 2}
+	nums := []int{4, 5, 8, 2, 1}
 	k := 3
 	kth := Constructor(k, nums)
-	fmt.Println(kth.Add(3))
-	fmt.Println(kth.Add(5))
-	fmt.Println(kth.Add(10))
-	fmt.Println(kth.Add(9))
-	fmt.Println(kth.Add(4))
+	kth.Pq.PrintHeap()
+	fmt.Println("第k大的值为：", kth.Add(3))
+	kth.Pq.PrintHeap()
+	fmt.Println("第k大的值为：",kth.Add(5))
+	kth.Pq.PrintHeap()
+	fmt.Println("第k大的值为：",kth.Add(10))
+	kth.Pq.PrintHeap()
+	fmt.Println("第k大的值为：",kth.Add(9))
+	kth.Pq.PrintHeap()
+	fmt.Println("第k大的值为：",kth.Add(4))
+	kth.Pq.PrintHeap()
+
 }

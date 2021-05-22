@@ -57,3 +57,7 @@ func (this *Queue) Peek() interface{} {
 	}
 	return this.start.value
 }
+
+func (this *Queue) IsEmpty() bool {
+	return this.length == 0
+}

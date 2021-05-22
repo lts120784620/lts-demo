@@ -36,12 +36,12 @@ func LevelOrderBottom(root *TreeNode) [][]int {
 // 层序输出，叶子节点开始
 func LevelOrderBottom2(root *TreeNode) [][]int {
 	res := [][]int{}
-	if (root == nil) {
+	if root == nil {
 		return res
 	}
 	q := common.NewQueue()
 	q.Add(root)
-	for (!q.IsEmpty()) {
+	for !q.IsEmpty() {
 		column := []int{}
 		// 用这个list代表上层节点数量
 		length := q.Size()
