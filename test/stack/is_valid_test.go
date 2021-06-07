@@ -1,10 +1,8 @@
-package main
+package stack
 
 import (
 	"fmt"
 	"testing"
-
-	"lts-demo/test/stack"
 )
 
 /**
@@ -16,7 +14,7 @@ No.20 有效的括号
 
 func TestIsValid(t *testing.T) {
 	str := "()([]{}"
-	s := stack.NewStack()
+	s := NewStack()
 	m := map[string]string{"]": "[", "}": "{", ")": "("}
 	for _, v := range str {
 		// 如果不在map中，说明是左括号，放到栈中

@@ -57,10 +57,7 @@ func (pq *PriorityQueue) update(item *Item, value interface{}, priority int) {
 
 func (pq *PriorityQueue) Push(x interface{}) {
 	n := len(*pq)
-	item := &Item{
-		value:    x,
-		priority: x.(int),
-	}
+	item := x.(*Item)
 	item.index = n
 	*pq = append(*pq, item)
 }

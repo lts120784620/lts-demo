@@ -34,11 +34,19 @@ func Constructor(k int, nums []int) KthLargest {
 }
 
 func (this *KthLargest) Add(val int) int {
-	if this.Pq.Len() < this.K{
-		heap.Push(&this.Pq, val)
-	}else if this.Pq.Peek().(*Item).value.(int) < val{
+	if this.Pq.Len() < this.K {
+		item := &Item{
+			value:    val,
+			priority: val,
+		}
+		heap.Push(&this.Pq, item)
+	} else if this.Pq.Peek().(*Item).value.(int) < val {
 		heap.Pop(&this.Pq)
-		heap.Push(&this.Pq, val)
+		item := &Item{
+			value:    val,
+			priority: val,
+		}
+		heap.Push(&this.Pq, item)
 	}
 	return this.Pq.Peek().(*Item).value.(int)
 }
@@ -50,13 +58,13 @@ func TestKthLargest(t *testing.T) {
 	kth.Pq.PrintHeap()
 	fmt.Println("第k大的值为：", kth.Add(3))
 	kth.Pq.PrintHeap()
-	fmt.Println("第k大的值为：",kth.Add(5))
+	fmt.Println("第k大的值为：", kth.Add(5))
 	kth.Pq.PrintHeap()
-	fmt.Println("第k大的值为：",kth.Add(10))
+	fmt.Println("第k大的值为：", kth.Add(10))
 	kth.Pq.PrintHeap()
-	fmt.Println("第k大的值为：",kth.Add(9))
+	fmt.Println("第k大的值为：", kth.Add(9))
 	kth.Pq.PrintHeap()
-	fmt.Println("第k大的值为：",kth.Add(4))
+	fmt.Println("第k大的值为：", kth.Add(4))
 	kth.Pq.PrintHeap()
 
 }
