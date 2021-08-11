@@ -16,18 +16,19 @@ func allocate() {
 func main() {
 	// 1.通过执行命令 GODEBUG=gctrace=1 ./gc_main
 	// 2.通过读取trace.out文件 go tool trace ../../trace.out
-	f, _ := os.Create("trace.out")
+	f, _ := os.Create("./trace.out")
 	defer f.Close()
 	trace.Start(f)
 	defer trace.Stop()
 
-	for n := 1; n < 200; n++ {
+	for n := 1; n < 200000; n++ {
 		allocate()
+		//time.Sleep(time.Second)
 	}
 
 	//go printGCStats()
-	go printMemStats()
-	select {}
+	//go printMemStats()
+	//select {}
 }
 
 // 3.定时输出gc状态
