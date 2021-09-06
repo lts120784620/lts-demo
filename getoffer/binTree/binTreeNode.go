@@ -2,7 +2,7 @@ package binTree
 
 import (
 	"fmt"
-	"lts-demo/test/common"
+	"lts-demo/leetcode_test/common"
 )
 
 type BinaryTreeNode struct {
@@ -46,9 +46,9 @@ func PrintBinaryTree2(root *BinaryTreeNode) {
 	}
 	stack := common.NewStack()
 	stack.Push(root)
-	for !stack.IsEmpty(){
+	for !stack.IsEmpty() {
 		node := stack.Pop().(*BinaryTreeNode)
-		if node == nil{
+		if node == nil {
 			continue
 		}
 		fmt.Printf("%d ->", node.Value)
