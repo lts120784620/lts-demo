@@ -10,7 +10,7 @@ func NewQueue() *MyQueue {
 }
 
 func (this *MyQueue) Add(v interface{}) {
-	if(this == nil){
+	if this == nil {
 		return
 	}
 	this.items = append(this.items, v)
@@ -18,7 +18,7 @@ func (this *MyQueue) Add(v interface{}) {
 }
 
 func (this *MyQueue) Offer() interface{} {
-	if(this == nil || this.length == 0){
+	if this == nil || this.length == 0 {
 		return nil
 	}
 	res := this.items[0]
@@ -28,15 +28,14 @@ func (this *MyQueue) Offer() interface{} {
 }
 
 func (this *MyQueue) IsEmpty() bool {
-	if(this == nil){
+	if this == nil {
 		return true
 	}
 	return this.length == 0
 }
 func (this *MyQueue) Size() int {
-	if(this == nil){
+	if this == nil {
 		return 0
 	}
 	return this.length
 }
-
