@@ -3,9 +3,9 @@ package linkedlist
 /**
 删除倒数第k个节点
 */
-func GetNthFromEnd(l *MyLinkedList, k int) *ListNode {
-	first := l.Head
-	second := l.Head
+func GetNthFromEnd(l *ListNode, k int) *ListNode {
+	first := l.Next
+	second := l.Next
 	i := 0
 	// 第二个指针比第一个快k个节点
 	for i < k && second != nil {
@@ -13,7 +13,7 @@ func GetNthFromEnd(l *MyLinkedList, k int) *ListNode {
 		second = second.Next
 	}
 	if second == nil {
-		return l.Head.Next
+		return l.Next.Next
 	}
 	// 找到倒数第k-1个
 	for second.Next != nil {
@@ -22,5 +22,5 @@ func GetNthFromEnd(l *MyLinkedList, k int) *ListNode {
 	}
 	// 删除
 	first.Next = first.Next.Next
-	return l.Head
+	return l.Next
 }

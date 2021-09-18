@@ -1,9 +1,26 @@
-package main
+package sort
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
 
-func main() {
-	arr := []int{3, 2, 5, 6, 4, 1, 9, 7, 8}
+	"lts-demo/leetcode_test/unit"
+)
+
+/**
+No.
+描述：
+	堆排序
+思路：
+    1、通常用来解决topK问题，时间复杂度O(n^2)
+时间：
+    1、2021/9/17
+*/
+
+func TestHeapSort(t *testing.T) {
+	arr := unit.RandomArrays(10)
+	fmt.Println(arr)
+	fmt.Println(">>>>>>>>>>>>>>>>")
 	heapSort(arr)
 	fmt.Println(arr)
 }
@@ -12,12 +29,12 @@ func heapSort(arr []int) {
 	// 建堆
 	// 从最后一个非叶子节点开始
 	for i := len(arr)/2 - 1; i >= 0; i-- {
-		fmt.Println(i)
 		fixHeap(arr, i, len(arr))
 	}
+	fmt.Println(arr)
 	// 调堆
 	for i := len(arr) - 1; i > 0; i-- {
-		swap(arr, 0, i)
+		unit.ArraysSwap(arr, 0, i)
 		fixHeap(arr, 0, i)
 	}
 }
@@ -37,11 +54,4 @@ func fixHeap(arr []int, i, n int) {
 		j = 2*i + 1
 	}
 	arr[i] = t
-}
-
-//交换
-func swap(arr []int, x, y int) {
-	t := arr[x]
-	arr[x] = arr[y]
-	arr[y] = t
 }

@@ -14,54 +14,52 @@ No.206 链表翻转
 否则将当前节点的next的next指针指向当前节点
 */
 
-func init() {
-}
-
 func TestReverseList1(t *testing.T) {
-	if l.Head == nil || l.Head.Next == nil {
-		return
-	}
-	cur := l.Head
-	var prev *ListNode
-	for cur != nil {
-		// 三元赋值，其实就是用了一个中间变量，与下面的写法一样
-		cur.Next, prev, cur = prev, cur, cur.Next
-	}
-	l.Head = prev
-
-	l.Travelse()
+	//if l.Head == nil || l.Head.Next == nil {
+	//	return
+	//}
+	//cur := l.Head
+	//var prev *ListNode
+	//for cur != nil {
+	//	// 三元赋值，其实就是用了一个中间变量，与下面的写法一样
+	//	cur.Next, prev, cur = prev, cur, cur.Next
+	//}
+	//l.Head = prev
+	//
+	//l.Travelse()
 }
 
 func TestReverseList2(t *testing.T) {
-	if l.Head == nil || l.Head.Next == nil {
-		return
-	}
-	cur := l.Head
-	var prev *ListNode
-	for cur != nil {
-		t := cur.Next
-		cur.Next = prev
-		prev = cur
-		cur = t
-	}
-	l.Head = prev
-
-	l.Travelse()
+	//if l.Head == nil || l.Head.Next == nil {
+	//	return
+	//}
+	//cur := l.Head
+	//var prev *ListNode
+	//for cur != nil {
+	//	t := cur.Next
+	//	cur.Next = prev
+	//	prev = cur
+	//	cur = t
+	//}
+	//l.Head = prev
+	//
+	//l.Travelse()
 }
 
 // 翻转链表，递归
 func TestReverseListByRecursive(t *testing.T) {
-	l := NewInitLinkedList(5)
-	l.Head = recursion(l.Head)
-	l.Travelse()
+	//l := NewInitLinkedList(5)
+	//l.Head = recursion(l.Head)
+	//l.Travelse()
 }
 
 func recursion(head *ListNode) *ListNode {
-	if head == nil || head.Next == nil {
-		return head
-	}
-	n := recursion(head.Next)
-	head.Next.Next = head
-	head.Next = nil
-	return n
+	//if head == nil || head.Next == nil {
+	//	return head
+	//}
+	//n := recursion(head.Next)
+	//head.Next.Next = head
+	//head.Next = nil
+	//return n
+	return nil
 }

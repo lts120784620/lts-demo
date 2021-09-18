@@ -3,15 +3,15 @@ package linkedlist
 /**
 删除给定排序链表中的所有重复元素
 */
-func DeleteDuplicates(l *MyLinkedList) *ListNode {
-	head := l.Head.Next
+func DeleteDuplicates(l *ListNode) *ListNode {
+	head := l.Next.Next
 	if head == nil {
 		return nil
 	}
 	p1 := head
 	p2 := head.Next
 	for p1 != nil && p2 != nil {
-		if p2.Data == p1.Data {
+		if p2.Val == p1.Val {
 			p1.Next = p2.Next
 			p2 = p1.Next
 		} else {
@@ -25,9 +25,9 @@ func DeleteDuplicates(l *MyLinkedList) *ListNode {
 /**
 删除链表中相同的所有节点
 */
-func RemoveElements(l *MyLinkedList, val string) *ListNode {
-	head := l.Head.Next
-	for head != nil && head.Data == val {
+func RemoveElements(l *ListNode, val int) *ListNode {
+	head := l.Next.Next
+	for head != nil && head.Val == val {
 		head = head.Next
 	}
 	if head == nil {
@@ -36,7 +36,7 @@ func RemoveElements(l *MyLinkedList, val string) *ListNode {
 	pre := head
 	cur := pre.Next
 	for cur != nil {
-		if cur.Data == val {
+		if cur.Val == val {
 			pre.Next = cur.Next
 			cur = pre.Next
 		} else {

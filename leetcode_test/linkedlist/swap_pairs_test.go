@@ -14,16 +14,16 @@ No.24 两两交换链表中的节点
 */
 
 func TestSwapPairs(t *testing.T) {
-	prev := l.Head
-	for prev != nil && prev.Next != nil && prev.Next.Next != nil {
-		a := prev.Next
-		b := a.Next
-		// 开始交换
-		prev.Next = b
-		a.Next = b.Next
-		b.Next = a
-		// 交换结束，向后移动
-		prev = a
-	}
-	l.Travelse()
+	//prev := l.Head
+	//for prev != nil && prev.Next != nil && prev.Next.Next != nil {
+	//	a := prev.Next
+	//	b := a.Next
+	//	// 开始交换
+	//	prev.Next = b
+	//	a.Next = b.Next
+	//	b.Next = a
+	//	// 交换结束，向后移动
+	//	prev = a
+	//}
+	//l.Travelse()
 }

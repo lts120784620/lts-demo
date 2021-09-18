@@ -5,17 +5,17 @@ import "fmt"
 /**
 合并两个有序链表
 */
-func MergeTwoLists(l1 *MyLinkedList, l2 *MyLinkedList) *ListNode {
-	p1 := l1.Head.Next
-	p2 := l2.Head.Next
-	dummyHead := &ListNode{"", p1}
+func MergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+	p1 := l1.Next.Next
+	p2 := l2.Next.Next
+	dummyHead := &ListNode{0, p1}
 	for p2 != nil {
-		if p1.Next != nil && p1.Data <= p2.Data {
+		if p1.Next != nil && p1.Val <= p2.Val {
 			p1 = p1.Next
 		} else {
-			fmt.Println("before:", p1.Data, p1.Next.Data, p2.Data, p2.Next.Data)
+			fmt.Println("before:", p1.Val, p1.Next.Val, p2.Val, p2.Next.Val)
 			p1.Next, p2.Next, p1, p2 = p2, p1.Next, p2.Next, p2
-			fmt.Println("after:", p1.Data, p1.Next.Data, p2.Data, p2.Next.Data)
+			fmt.Println("after:", p1.Val, p1.Next.Val, p2.Val, p2.Next.Val)
 		}
 	}
 	return dummyHead.Next
@@ -24,8 +24,8 @@ func MergeTwoLists(l1 *MyLinkedList, l2 *MyLinkedList) *ListNode {
 /**
 判断链表是否为回文链表
 */
-func IsPalindrome(l *MyLinkedList) bool {
-	head := l.Head.Next
+func IsPalindrome(l *ListNode) bool {
+	head := l.Next.Next
 	if head == nil || head.Next == nil {
 		return true
 	}
@@ -38,11 +38,11 @@ func IsPalindrome(l *MyLinkedList) bool {
 	}
 	//p1中点
 	// 翻转后一半链表
-	//fmt.Println(p1.Data,p2.Data)
+	//fmt.Println(p1.Val,p2.Val)
 	var pre *ListNode
 	cur := p1.Next
 	var next *ListNode
-	//fmt.Println(pre.Data,cur.Data,next.Data)
+	//fmt.Println(pre.Val,cur.Val,next.Val)
 	for cur != nil {
 		next = cur.Next
 		cur.Next = pre
@@ -53,7 +53,7 @@ func IsPalindrome(l *MyLinkedList) bool {
 	// 验证相等
 	h := head
 	q := p1.Next
-	for h != nil && q != nil && h.Data == q.Data {
+	for h != nil && q != nil && h.Val == q.Val {
 		h = h.Next
 		q = q.Next
 	}

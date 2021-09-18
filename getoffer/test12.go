@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"lts-demo/leetcode_test/unit_tool"
+	"lts-demo/leetcode_test/unit"
 	"strconv"
 )
 
 func main() {
-	print(unit_tool.RandomString())
+	print(unit.RandomString())
 }
 
 func increment(numbers []string) bool {

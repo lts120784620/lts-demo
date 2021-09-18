@@ -7,43 +7,38 @@ import "fmt"
 */
 
 type ListNode struct {
-	Data string
+	Val  int
 	Next *ListNode
 }
 
-type MyLinkedList struct {
-	Head *ListNode
-	size int
-}
-
-type linkedList interface {
+type LinkedList interface {
 	Length() int
 	Insert(idx int, n *ListNode)
 	Delete(idx int)
 	Get(idx int) *ListNode
-	Traverse()
+	String() string
 }
 
-var l = NewInitLinkedList(5)
-
-func NewLinkedList() *MyLinkedList {
-	return &MyLinkedList{&ListNode{"head", nil}, 0}
+func NewLinkedList() *ListNode {
+	// 返回头节点
+	return &ListNode{0, nil}
 }
 
-func NewInitLinkedList(size int) *MyLinkedList {
-	t := []string{"A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N"}
-	l := &MyLinkedList{&ListNode{"head", nil}, 0}
-	for i := 0; i < size; i++ {
-		n := &ListNode{t[i], nil}
-		l.Add(n)
+func NewInitLinkedListByArray(arr []interface{}) *ListNode {
+	head := &ListNode{0, nil}
+	for _, v := range arr {
+		n := &ListNode{v.(int), nil}
+		head.Add(n)
 	}
-	fmt.Print("链表初始化为：")
-	TravelseHead(l.Head)
-	return l
+	fmt.Printf("链表初始化完成:%s\n", head.String())
+	return head
 }
 
-func (l *MyLinkedList) Length() int {
-	n := l.Head.Next
+func (l *ListNode) Length() int {
+	if l == nil {
+		return 0
+	}
+	n := l.Next
 	i := 0
 	for n != nil {
 		i++
@@ -52,28 +47,25 @@ func (l *MyLinkedList) Length() int {
 	return i
 }
 
-func (l *MyLinkedList) Add(node *ListNode) {
+func (l *ListNode) Add(node *ListNode) {
 	if node == nil {
 		return
 	}
-	n := l.Head
+
+	n := l
 	i := 0
-	for i < l.size && n != nil {
+	for n != nil && n.Next != nil {
 		i++
 		n = n.Next
 	}
-	if n == nil {
-		return
-	}
 	n.Next = node
-	l.size++
 }
 
-func (l *MyLinkedList) Insert(idx int, node *ListNode) {
+func (l *ListNode) Insert(idx int, node *ListNode) {
 	if idx < 0 && node == nil {
 		return
 	}
-	n := l.Head
+	n := l.Next
 	i := 0
 	for i < idx-1 && n != nil {
 		i++
@@ -81,14 +73,13 @@ func (l *MyLinkedList) Insert(idx int, node *ListNode) {
 	}
 	node.Next = n.Next
 	n.Next = node
-	l.size++
 }
 
-func (l *MyLinkedList) Get(idx int) *ListNode {
+func (l *ListNode) Get(idx int) *ListNode {
 	if idx < 0 {
 		return nil
 	}
-	n := l.Head
+	n := l
 	i := 0
 	for i < idx && n != nil {
 		i++
@@ -97,11 +88,11 @@ func (l *MyLinkedList) Get(idx int) *ListNode {
 	return n
 }
 
-func (l *MyLinkedList) Delete(idx int) {
+func (l *ListNode) Delete(idx int) {
 	if idx < 0 || idx > l.Length() {
 		return
 	}
-	n := l.Head
+	n := l
 	i := 0
 	for i < idx-1 && n != nil {
 		i++
@@ -110,30 +101,15 @@ func (l *MyLinkedList) Delete(idx int) {
 	n.Next = n.Next.Next
 }
 
-func (l *MyLinkedList) Travelse() {
-	n := l.Head
-	i := 0
+func (l *ListNode) String() string {
+	n := l.Next
+	s := fmt.Sprintf("长度:%d, head->", l.Length())
 	for n != nil {
-		fmt.Print(n.Data)
+		s = fmt.Sprintf("%s%d", s, n.Val)
 		if n.Next != nil {
-			fmt.Print("-> ")
+			s = fmt.Sprintf("%s->", s)
 		}
 		n = n.Next
-		i++
 	}
-	fmt.Println()
-}
-
-func TravelseHead(head *ListNode) {
-	n := head
-	i := 0
-	for n != nil {
-		fmt.Print(n.Data)
-		if n.Next != nil {
-			fmt.Print("-> ")
-		}
-		n = n.Next
-		i++
-	}
-	fmt.Println()
+	return s
 }

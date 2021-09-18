@@ -20,29 +20,29 @@ func init() {
 
 // 判重法
 func TestHasCycle1(t *testing.T) {
-	m := map[string]struct{}{}
-	cur := l.Head
-	for cur != nil {
-		if _, ok := m[cur.Data]; ok {
-			println("有环")
-			return
-		}
-		m[cur.Data] = struct{}{}
-		cur = cur.Next
-	}
+	//m := map[string]struct{}{}
+	//cur := l.Head
+	//for cur != nil {
+	//	if _, ok := m[cur.Data]; ok {
+	//		println("有环")
+	//		return
+	//	}
+	//	m[cur.Data] = struct{}{}
+	//	cur = cur.Next
+	//}
 	println("无环")
 }
 
 // 快慢指针法
 func TestHasCycle2(t *testing.T) {
-	slow, fast := l.Head, l.Head
-	for slow != nil && fast != nil && fast.Next != nil {
-		slow = slow.Next
-		fast = fast.Next.Next
-		if slow == fast {
-			println("有环")
-			return
-		}
-	}
+	//slow, fast := l.Head, l.Head
+	//for slow != nil && fast != nil && fast.Next != nil {
+	//	slow = slow.Next
+	//	fast = fast.Next.Next
+	//	if slow == fast {
+	//		println("有环")
+	//		return
+	//	}
+	//}
 	println("无环")
 }
