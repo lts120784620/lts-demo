@@ -15,12 +15,12 @@ type (
 	}
 )
 
-// Create a new queue
+// New Create a new queue
 func New() *Queue {
 	return &Queue{nil, nil, 0}
 }
 
-// Take the next item off the front of the queue
+// Dequeue Take the next item off the front of the queue
 func (this *Queue) Dequeue() interface{} {
 	if this.length == 0 {
 		return nil
