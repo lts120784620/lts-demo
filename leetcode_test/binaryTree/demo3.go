@@ -35,25 +35,6 @@ func SearchBST(root *TreeNode, val int) *TreeNode {
 }
 
 /**
-有序数组转换二叉搜索树
-*/
-func sortedArrayToBST(num []int) *TreeNode {
-	if len(num) == 0 {
-		return nil
-	}
-	return arrayToBST(num, 0, len(num))
-}
-func arrayToBST(num []int, start, end int) *TreeNode {
-	if start > end {
-		return nil
-	}
-	mid := (start + end) / 2
-	left := arrayToBST(num, start, mid-1)
-	right := arrayToBST(num, mid+1, end)
-	return &TreeNode{num[mid], left, right}
-}
-
-/**
 根据左右边界裁剪二叉树
 */
 func TrimBST(root *TreeNode, L, R int) *TreeNode {

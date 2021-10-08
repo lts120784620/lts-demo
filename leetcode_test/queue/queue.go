@@ -36,6 +36,27 @@ func (this *Queue) Dequeue() interface{} {
 	return n.value
 }
 
+// Dequeue Take the next item off the back of the queue
+func (this *Queue) DequeueFront() interface{} {
+	if this.length == 0 {
+		return nil
+	}
+	n := this.end
+	if this.length == 1 {
+		this.start = nil
+		this.end = nil
+	} else {
+		node := this.start
+		for i := 1; i < this.length-1; i++ {
+			node = node.next
+		}
+		this.end = node
+		this.end.next = nil
+	}
+	this.length--
+	return n.value
+}
+
 // Put an item on the end of a queue
 func (this *Queue) Enqueue(value interface{}) {
 	n := &node{value, nil}

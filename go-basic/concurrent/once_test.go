@@ -1,4 +1,4 @@
-package go_basic
+package concurrent
 
 import (
 	"fmt"
