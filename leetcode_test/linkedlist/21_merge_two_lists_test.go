@@ -10,6 +10,7 @@ No.21 合并两个有序链表
 描述：
 	将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
 思路：
+	双指针法
     1、简单的方法，两个指针p1,p1分别指向l1,l2，比较大小，大的指向新链表，向后移动
 	2、递归解法，终止条件为l1,l2为nil
 时间：
@@ -17,8 +18,8 @@ No.21 合并两个有序链表
 */
 
 func TestMergeTwoLists(t *testing.T) {
-	l1 := NewInitLinkedListByArray([]interface{}{1, 2, 4})
-	l2 := NewInitLinkedListByArray([]interface{}{1, 3, 4})
+	l1 := NewForArrays([]interface{}{1, 2, 4})
+	l2 := NewForArrays([]interface{}{1, 3, 4})
 	fmt.Println(mergeTwoLists(l1, l2))
 	fmt.Println(mergeTwoLists2(l1, l2))
 }

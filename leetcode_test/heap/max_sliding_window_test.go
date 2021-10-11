@@ -38,13 +38,13 @@ func TestName(t *testing.T) {
 // 创建优先级队列
 func maxSlidingWindow1(nums []int, k int) []int {
 	res := []int{}
-	pq := New(map[interface{}]int{})
+	pq := NewForMap(map[interface{}]int{})
 	for _, n := range nums {
 		var top *Item
 		if pq.Len() < k {
 			item := Item{
-				value:    n,
-				priority: -n,
+				Value:    n,
+				Priority: -n,
 			}
 			heap.Push(&pq, item)
 			top = pq.Peek().(*Item)
@@ -54,7 +54,7 @@ func maxSlidingWindow1(nums []int, k int) []int {
 		heap.Push(&pq, n)
 
 		top = pq.Peek().(*Item)
-		res = append(res, top.value.(int))
+		res = append(res, top.Value.(int))
 	}
 	return res
 }

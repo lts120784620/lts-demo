@@ -29,26 +29,26 @@ func Constructor(k int, nums []int) KthLargest {
 	for _, n := range nums {
 		m[n] = n
 	}
-	kHeap := KthLargest{New(m), k}
+	kHeap := KthLargest{NewForMap(m), k}
 	return kHeap
 }
 
 func (this *KthLargest) Add(val int) int {
 	if this.Pq.Len() < this.K {
 		item := &Item{
-			value:    val,
-			priority: val,
+			Value:    val,
+			Priority: val,
 		}
 		heap.Push(&this.Pq, item)
-	} else if this.Pq.Peek().(*Item).value.(int) < val {
+	} else if this.Pq.Peek().(*Item).Value.(int) < val {
 		heap.Pop(&this.Pq)
 		item := &Item{
-			value:    val,
-			priority: val,
+			Value:    val,
+			Priority: val,
 		}
 		heap.Push(&this.Pq, item)
 	}
-	return this.Pq.Peek().(*Item).value.(int)
+	return this.Pq.Peek().(*Item).Value.(int)
 }
 
 func TestKthLargest(t *testing.T) {

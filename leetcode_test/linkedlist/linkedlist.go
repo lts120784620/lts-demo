@@ -19,17 +19,18 @@ type LinkedList interface {
 	String() string
 }
 
-func NewLinkedList() *ListNode {
+func New() *ListNode {
 	// 返回头节点
 	return &ListNode{0, nil}
 }
 
-func NewInitLinkedListByArray(arr []interface{}) *ListNode {
+func NewForArrays(arr []interface{}) *ListNode {
 	head := &ListNode{0, nil}
 	for _, v := range arr {
 		n := &ListNode{v.(int), nil}
 		head.Add(n)
 	}
+	head = head.Next
 	fmt.Printf("链表初始化完成:%s\n", head.String())
 	return head
 }
@@ -38,7 +39,7 @@ func (l *ListNode) Length() int {
 	if l == nil {
 		return 0
 	}
-	n := l.Next
+	n := l
 	i := 0
 	for n != nil {
 		i++
@@ -102,7 +103,7 @@ func (l *ListNode) Delete(idx int) {
 }
 
 func (l *ListNode) String() string {
-	n := l.Next
+	n := l
 	s := fmt.Sprintf("长度:%d, head->", l.Length())
 	for n != nil {
 		s = fmt.Sprintf("%s%d", s, n.Val)
