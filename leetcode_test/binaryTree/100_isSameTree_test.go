@@ -17,8 +17,8 @@ No.100 相同的树
 */
 
 func TestIsSameTree(t *testing.T) {
-	a := NewTreeByArrays([]interface{}{1, 2, 3, 4})
-	b := NewTreeByArrays([]interface{}{1, 2, 3})
+	a := NewBinTreeByArrays([]interface{}{1, 2, 3, 4})
+	b := NewBinTreeByArrays([]interface{}{1, 2, 3})
 	fmt.Println(isSameTree(a, b))
 }
 

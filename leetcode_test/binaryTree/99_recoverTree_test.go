@@ -18,7 +18,7 @@ No.99 恢复二叉搜索树
 */
 
 func TestRecoverTree(t *testing.T) {
-	r := NewTreeByArrays([]interface{}{3, 1, 4, nil, nil, 2})
+	r := NewBinTreeByArrays([]interface{}{3, 1, 4, nil, nil, 2})
 	recoverTree(r)
 	fmt.Println(r.String())
 }

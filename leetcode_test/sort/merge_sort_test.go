@@ -10,7 +10,7 @@ import (
 No.
 描述：
 	归并排序
-思路：
+思路：二叉树的后续遍历
     1、归并是典型的分治思路，归并的核心思路是如何将两个有序的数组合并成一个有序的大数组
 	2、首先通过递归的方式，将数组分成前后两个小部分，直到两个小部分为单值，
 	3、在递归划分内部实现将两个小数组合并成一个大数组
@@ -32,7 +32,9 @@ func mergeSort(arr []int) []int {
 		return arr
 	}
 	mid := len(arr) / 2
-	return merge(mergeSort(arr[0:mid]), mergeSort(arr[mid:]))
+	left := mergeSort(arr[0:mid])
+	right := mergeSort(arr[mid:])
+	return merge(left, right)
 }
 
 func merge(l1, l2 []int) []int {

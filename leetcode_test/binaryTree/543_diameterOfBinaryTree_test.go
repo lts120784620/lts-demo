@@ -18,7 +18,7 @@ No.543 二叉树的直径
 var max int = 1
 
 func TestDiameterOfBinaryTree(t *testing.T) {
-	r := NewTreeByArrays([]interface{}{-10, 9, 20, nil, nil, 15, 7})
+	r := NewBinTreeByArrays([]interface{}{-10, 9, 20, nil, nil, 15, 7})
 	fmt.Println(diameterOfBinaryTree(r))
 }
 

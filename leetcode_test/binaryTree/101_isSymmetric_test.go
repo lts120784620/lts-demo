@@ -17,7 +17,7 @@ No.101 对称二叉树
 */
 
 func TestIsSymmtric(t *testing.T) {
-	a := NewTreeByArrays([]interface{}{1, 2, 2, 3, 4, 4, 3, 0})
+	a := NewBinTreeByArrays([]interface{}{1, 2, 2, 3, 4, 4, 3, 0})
 	fmt.Println(isSymmetric(a))
 }
 

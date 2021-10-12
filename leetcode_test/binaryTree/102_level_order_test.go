@@ -17,7 +17,7 @@ No.102 二叉树的层序遍历
 */
 
 func TestLevelOrder(t *testing.T) {
-	n := NewTreeByArrays([]interface{}{3, 9, 20, nil, nil, 15, 7})
+	n := NewBinTreeByArrays([]interface{}{3, 9, 20, nil, nil, 15, 7})
 	fmt.Println(levelOrder(n))
 }
 

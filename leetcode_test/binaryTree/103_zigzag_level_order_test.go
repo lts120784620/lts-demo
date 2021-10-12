@@ -17,7 +17,7 @@ No.103 二叉树的锯齿形层序遍历
 */
 
 func TestZigzagLevelOrder(t *testing.T) {
-	node := NewTreeByArrays([]interface{}{3, 9, 20, nil, nil, 15, 7})
+	node := NewBinTreeByArrays([]interface{}{3, 9, 20, nil, nil, 15, 7})
 	fmt.Println(zigzagLevelOrder(node))
 }
 

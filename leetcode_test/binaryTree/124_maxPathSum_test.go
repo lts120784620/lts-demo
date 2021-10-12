@@ -18,7 +18,7 @@ No.124 二叉树中的最大路径和
 */
 
 func TestMaxPathSum(t *testing.T) {
-	r := NewTreeByArrays([]interface{}{2, -1})
+	r := NewBinTreeByArrays([]interface{}{2, -1})
 	fmt.Println(maxPathSum(r))
 }
 

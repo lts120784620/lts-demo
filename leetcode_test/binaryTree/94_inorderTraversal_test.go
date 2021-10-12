@@ -18,7 +18,7 @@ No.94 二叉树的中序遍历
 */
 
 func TestInorderTraversal(t *testing.T) {
-	n := NewTreeByArrays([]interface{}{1, 2, 3, 4, 5, 6, 7})
+	n := NewBinTreeByArrays([]interface{}{1, 2, 3, 4, 5, 6, 7})
 	fmt.Println(inorderTraversal(n))
 	fmt.Println(inorderTraversal2(n))
 }

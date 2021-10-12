@@ -14,8 +14,8 @@ No.617
 */
 
 func TestMergeTrees(t *testing.T) {
-	p := NewTreeByArrays([]interface{}{1, 3, 2, 5})
-	q := NewTreeByArrays([]interface{}{2, 1, 3, nil, 4, nil, 7})
+	p := NewBinTreeByArrays([]interface{}{1, 3, 2, 5})
+	q := NewBinTreeByArrays([]interface{}{2, 1, 3, nil, 4, nil, 7})
 	mergeTrees(p, q)
 }
 

@@ -18,7 +18,7 @@ No.104 二叉树的最大深度
 */
 
 func TestMaxDepth(t *testing.T) {
-	a := NewTreeByArrays([]interface{}{1, 2, 3, 4})
+	a := NewBinTreeByArrays([]interface{}{1, 2, 3, 4})
 	fmt.Println(maxDepth(a))
 }
 

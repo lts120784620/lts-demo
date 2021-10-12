@@ -13,7 +13,7 @@ No.226 翻转二叉树
 */
 
 func TestInvertTree(t *testing.T) {
-	invertTree(NewTreeByArrays([]interface{}{4, 2, 7, 1, 3, 6, 9}))
+	invertTree(NewBinTreeByArrays([]interface{}{4, 2, 7, 1, 3, 6, 9}))
 }
 
 func invertTree(root *TreeNode) *TreeNode {

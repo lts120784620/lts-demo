@@ -17,7 +17,7 @@ No.144 二叉树的前序遍历
 */
 
 func TestPreorderTraversal(t *testing.T) {
-	node := NewTreeByArrays([]interface{}{1, 2, 3, 4, 5})
+	node := NewBinTreeByArrays([]interface{}{1, 2, 3, 4, 5})
 	fmt.Println(preorderTraversal(node))
 	fmt.Println(preorderTraversal2(node))
 	fmt.Println(preorderTraversal3(node))

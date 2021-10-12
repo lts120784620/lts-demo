@@ -18,7 +18,7 @@ No.145 二叉树的后序遍历
 */
 
 func TestPostorderTraversal(t *testing.T) {
-	node := NewTreeByArrays([]interface{}{2, nil, 3, nil, nil, nil, 1})
+	node := NewBinTreeByArrays([]interface{}{2, nil, 3, nil, nil, nil, 1})
 	fmt.Println(postorderTraversal(node))
 	fmt.Println(postorderTraversal2(node))
 	fmt.Println(postorderTraversal3(node))
