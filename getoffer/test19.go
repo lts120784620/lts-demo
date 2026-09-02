@@ -5,7 +5,7 @@ import (
 	"lts-demo/getoffer/binTree"
 )
 
-func main() {
+func Main() {
 	arr_a := []interface{}{8, 6, 10, 5, 7, 9, 11}
 	a := binTree.Convert2Tree(arr_a, 0)
 	binTree.PrintBinaryTree(a)
@@ -32,4 +32,3 @@ func mirrorRecursively(root *binTree.BinaryTreeNode) {
 		mirrorRecursively(root.Right)
 	}
 }
-
